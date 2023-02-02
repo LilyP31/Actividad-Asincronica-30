@@ -1,0 +1,75 @@
+<section class="padre">
+    <h2 class="text-center">Registro de Usuarios</h2>
+    <section class="fondo">
+    <section class="container">
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="border border-2 bg-light rounded mx-auto d-block">
+        
+            <!-- NOMBRE -->
+            <section class="container nombre">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text"  id="Nombre"  name="Nombre" formControlName="Nombre">       
+                    <section *ngIf="Nombre?.invalid && (Nombre?.dirty || Nombre?.touched)">
+                        <section *ngIf="Nombre?.errors?.['required']" class="alert alert-danger">
+                        El Nombre es obligatorio
+                        </section>
+                        </section>
+
+                        <section *ngIf="Nombre?.errors?.['pattern']" class="alert alert-danger">
+                            El Nombre no es valido
+                            </section>    
+                        <mat-icon matSuffix>close</mat-icon>
+                </mat-form-field>
+            </section>
+            <!-- Apellido -->
+            <section class="container Apellido">
+                    <mat-form-field class="example-full-width">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput type="text"  id="Apellido"  formControlName="Apellido">
+                    <section *ngIf="Apellido?.invalid && (Apellido?.dirty || Apellido?.touched)">
+                        <section *ngIf="Apellido?.errors?.['required']" class="alert alert-danger">
+                        El Apellido es obligatorio
+                        </section>
+                        </section>
+                        <section *ngIf="Apellido?.errors?.['pattern']" class="alert alert-danger">
+                            El Apellido no es valido
+                            </section>
+                        <mat-icon matSuffix>close</mat-icon>
+                    </mat-form-field>
+            </section>
+                <!-- CORREO -->
+                <section class="container Correo">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Correo</mat-label>
+                    <input matInput type="email"  id="Correo"  formControlName="Correo">
+                    <section *ngIf="Correo?.invalid && (Correo?.dirty || Correo?.touched)">
+                        <section *ngIf="Correo?.errors?.['required']" class="alert alert-warning">
+                        El Correo es obligatorio
+                        </section>
+                        </section>
+                        <section *ngIf="Correo?.errors?.['email']" class="alert alert-danger">
+                            El Correo no es valido
+                            </section>
+                        <mat-icon matSuffix>close</mat-icon>   
+                </mat-form-field>      
+                </section>
+
+                <!--BOTONES-->
+            <section class="d-flex justify-content-center">
+            <section>
+                <input type="submit" class="btn btn-primary m-3"  value="Save">
+            </section>
+            </section>
+        </form>
+    </section>
+    </section>
+</section>
+
+<!--<section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+<section *ngIf="nombres?.errors?.['required']" class="alert alert-success">
+El nombre es obligatorio
+</section>
+<section *ngIf="nombres?.errors?.['pattern']" class="alert alert-success">
+    El nombre no es valido
+    </section>
+</section>-->
